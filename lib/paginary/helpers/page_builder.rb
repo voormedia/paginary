@@ -10,7 +10,7 @@ module Paginary
       def initialize(template, relation, options = {})
         @template = template
         @param_name = options.delete(:param) || :page
-        @link_range = options.delete(:link_range) || 20
+        @link_range = options.delete(:link_range) || 10
         @relation = relation.paginated? ? relation : relation.paginate(params[@param_name], options)
       end
       
@@ -59,7 +59,7 @@ module Paginary
         end
       end
       
-      private
+      protected
       
       def page_numbers
         start  = current_page - @link_range
