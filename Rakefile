@@ -10,7 +10,7 @@ Jeweler::Tasks.new do |spec|
 
   spec.authors = ["Rolf Timmermans"]
   spec.email = "r.timmermans@voormedia.com"
-  spec.homepage = "http://rails-erd.rubyforge.org/"
+  spec.homepage = "http://github.com/voormedia/paginary"
 
   spec.add_development_dependency "rails"
   spec.add_development_dependency "sqlite3-ruby"
