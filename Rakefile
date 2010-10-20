@@ -12,7 +12,7 @@ Jeweler::Tasks.new do |spec|
   spec.email = "r.timmermans@voormedia.com"
   spec.homepage = "http://github.com/voormedia/paginary"
 
-  spec.add_development_dependency "rails"
+  spec.add_runtime_dependency "rails", "~> 3.0"
   spec.add_development_dependency "sqlite3-ruby"
 end
 
