@@ -5,22 +5,77 @@
 
 Gem::Specification.new do |s|
   s.name = %q{paginary}
-  s.version = "0.0.0"
+  s.version = "0.0.1.pre1"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rolf Timmermans"]
-  s.date = %q{2010-10-19}
-  s.description = %q{Simple pagination in Rails.}
+  s.date = %q{2010-10-20}
+  s.description = %q{Simple, view-based pagination for Rails, built on top of Active Record 3 awesomeness.}
   s.email = %q{r.timmermans@voormedia.com}
   s.extra_rdoc_files = [
-    "LICENSE"
+    "LICENSE",
+     "README.md"
+  ]
+  s.files = [
+    ".gitignore",
+     "Gemfile",
+     "Gemfile.lock",
+     "LICENSE",
+     "README.md",
+     "Rakefile",
+     "VERSION",
+     "lib/paginary.rb",
+     "lib/paginary/helpers/page_builder.rb",
+     "lib/paginary/helpers/pagination_helper.rb",
+     "lib/paginary/railtie.rb",
+     "lib/paginary/relation/paginated.rb",
+     "lib/paginary/relation/query_methods.rb",
+     "paginary.gemspec",
+     "test/dummy/app/controllers/application_controller.rb",
+     "test/dummy/app/controllers/widgets_controller.rb",
+     "test/dummy/app/models/widget.rb",
+     "test/dummy/app/views/layouts/application.html.erb",
+     "test/dummy/app/views/widgets/_form.html.erb",
+     "test/dummy/app/views/widgets/edit.html.erb",
+     "test/dummy/app/views/widgets/index.html.erb",
+     "test/dummy/app/views/widgets/new.html.erb",
+     "test/dummy/app/views/widgets/show.html.erb",
+     "test/dummy/config.ru",
+     "test/dummy/config/application.rb",
+     "test/dummy/config/boot.rb",
+     "test/dummy/config/database.yml",
+     "test/dummy/config/environment.rb",
+     "test/dummy/config/environments/test.rb",
+     "test/dummy/config/routes.rb",
+     "test/dummy/db/schema.rb",
+     "test/test_helper.rb",
+     "test/unit/helpers/page_builder_test.rb",
+     "test/unit/helpers/pagination_helper_test.rb",
+     "test/unit/relation/paginated_test.rb",
+     "test/unit/relation/query_methods_test.rb"
   ]
   s.homepage = %q{http://rails-erd.rubyforge.org/}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{paginary}
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Pagination with relations.}
+  s.summary = %q{View-based pagination for Rails.}
+  s.test_files = [
+    "test/dummy/app/controllers/application_controller.rb",
+     "test/dummy/app/controllers/widgets_controller.rb",
+     "test/dummy/app/models/widget.rb",
+     "test/dummy/config/application.rb",
+     "test/dummy/config/boot.rb",
+     "test/dummy/config/environment.rb",
+     "test/dummy/config/environments/test.rb",
+     "test/dummy/config/routes.rb",
+     "test/dummy/db/schema.rb",
+     "test/test_helper.rb",
+     "test/unit/helpers/page_builder_test.rb",
+     "test/unit/helpers/pagination_helper_test.rb",
+     "test/unit/relation/paginated_test.rb",
+     "test/unit/relation/query_methods_test.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

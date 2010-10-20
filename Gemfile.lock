@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    paginary (0.0.0)
+    paginary (0.0.1.pre1)
 
 GEM
   remote: http://rubygems.org/

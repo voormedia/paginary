@@ -5,8 +5,8 @@ require "rake/testtask"
 Jeweler::Tasks.new do |spec|
   spec.name = "paginary"
   spec.rubyforge_project = "paginary"
-  spec.summary = "Pagination with relations."
-  spec.description = "Simple pagination in Rails."
+  spec.summary = "View-based pagination for Rails."
+  spec.description = "Simple, view-based pagination for Rails, built on top of Active Record 3 awesomeness."
 
   spec.authors = ["Rolf Timmermans"]
   spec.email = "r.timmermans@voormedia.com"
