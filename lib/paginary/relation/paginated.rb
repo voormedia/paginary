@@ -8,14 +8,17 @@ module Paginary
       def paginate!(*args)
         options = args.extract_options!
         self.items_per_page = options[:per_page] || 50
-        self.current_page   = args.first ? args.first.to_i : 1
+        self.current_page   = args.first || 1
         self.limit_value    = items_per_page
         self.offset_value   = items_per_page * (current_page - 1)
       end
       
       def current_page=(page)
-        raise ActiveRecord::RecordNotFound, "page #{page} out of bounds, expected 1..#{page_count}" unless page.between?(1, page_count)
-        @current_page = page
+        number = page.to_i
+        unless number.to_s == page.to_s && number.between?(1, page_count)
+          raise ActiveRecord::RecordNotFound, "unknown page #{page}, expected 1..#{page_count}"
+        end
+        @current_page = number
       end
 
       def paginated?

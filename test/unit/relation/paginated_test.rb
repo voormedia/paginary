@@ -40,6 +40,10 @@ class PaginatedTest < ActiveRecord::TestCase
   end
   
   # Page validation ==========================================================
+  test "paginate should set current page if given page is an integer string" do
+    assert_equal 2, @relation.paginate("2").current_page
+  end
+  
   test "paginate should raise error if given page is less than one" do
     assert_raises ActiveRecord::RecordNotFound do
       @relation.paginate(0)
@@ -49,6 +53,12 @@ class PaginatedTest < ActiveRecord::TestCase
   test "paginate should raise error if given page does not exist" do
     assert_raises ActiveRecord::RecordNotFound do
       @relation.paginate(1239)
+    end
+  end
+  
+  test "paginate should raise error if given page is not well formatted" do
+    assert_raises ActiveRecord::RecordNotFound do
+      @relation.paginate("1.5")
     end
   end
   
