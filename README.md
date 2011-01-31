@@ -49,3 +49,15 @@ Something like this will do the trick:
     <% end -%>
 
 
+About Paginary
+--------------
+
+Paginary was created by Rolf Timmermans (r.timmermans *at* voormedia.com)
+
+Copyright 2010-2011 Voormedia - [www.voormedia.com](http://www.voormedia.com/)
+
+
+License
+-------
+
+Paginary is released under the MIT license.
