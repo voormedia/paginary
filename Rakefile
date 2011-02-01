@@ -29,6 +29,10 @@ task :default => :test
 begin
   require "hanna/rdoctask"
   Rake::RDocTask.new do |rdoc|
+    rdoc.rdoc_files = %w{LICENSE} + Dir["lib/**/*.rb"]
+    rdoc.title = "Paginary – API Documentation"
+    rdoc.rdoc_dir = "rdoc"
+    rdoc.main = "Paginary"
   end
 rescue LoadError
 end

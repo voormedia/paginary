@@ -1,5 +1,5 @@
 module Paginary
-  module Helpers
+  module Helpers # @private :nodoc:
     class PageBuilder
       attr_reader :template, :relation
       alias_method :items, :relation

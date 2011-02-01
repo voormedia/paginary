@@ -1,5 +1,5 @@
 module Paginary
-  class Railtie < Rails::Railtie
+  class Railtie < Rails::Railtie # @private :nodoc:
     initializer "paginary.query_methods" do
       ActiveSupport.on_load(:active_record) do
         ActiveRecord::Relation.send :include, Paginary::Relation::QueryMethods

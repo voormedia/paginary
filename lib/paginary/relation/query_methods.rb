@@ -1,5 +1,5 @@
 module Paginary
-  module Relation
+  module Relation # @private :nodoc:
     module QueryMethods
       def paginate(*args)
         clone.extending(Paginated).tap do |relation|

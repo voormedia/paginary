@@ -18,7 +18,7 @@ In your `Gemfile`, add:
 
     gem "paginary", "0.0.1.pre2"
 
-### 2: Return Relations from your controllers
+### 2: Ensure your controllers return Relation objects
 
 Make sure the controller actions that you wish to paginate return Active Record
 `Relation` objects. This means that you should avoid using `.all`.
