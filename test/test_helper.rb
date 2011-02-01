@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(File.expand_path("../lib", File.dirname(__FILE__)))
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("dummy/config/environment", File.dirname(__FILE__))
 require File.expand_path("dummy/db/schema", File.dirname(__FILE__))
-require "test/unit"
+require "rails/test_help"
 
 ActiveRecord::Base.connection.class.class_eval do
   def execute_with_query_record(sql, name = nil, &block)

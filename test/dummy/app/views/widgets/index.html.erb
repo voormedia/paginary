@@ -7,13 +7,15 @@
     <th></th>
   </tr>
 
-<% @widgets.each do |widget| %>
-  <tr>
-    <td><%= link_to 'Show', widget %></td>
-    <td><%= link_to 'Edit', edit_widget_path(widget) %></td>
-    <td><%= link_to 'Destroy', widget, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<% paginate @widgets do |page| -%>
+  <% page.items do |widget| -%>
+    <tr>
+      <td><%= link_to 'Show', widget %></td>
+      <td><%= link_to 'Edit', edit_widget_path(widget) %></td>
+      <td><%= link_to 'Destroy', widget, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end -%>
+<% end -%>
 </table>
 
 <br />

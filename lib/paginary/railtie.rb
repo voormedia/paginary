@@ -12,5 +12,11 @@ module Paginary
         ActionView::Base.send :include, Paginary::Helpers::PaginationHelper
       end
     end
+
+    initializer "paginary.rescue_response" do
+      ActiveSupport.on_load(:action_controller) do
+        ActionDispatch::ShowExceptions.rescue_responses["Paginary::PageNotFound"] = :not_found
+      end
+    end
   end
 end

@@ -1,6 +1,8 @@
 require "active_support/core_ext/array/extract_options"
 
 module Paginary
+  class PageNotFound < StandardError; end
+
   module Relation # @private :nodoc:
     module Paginated
       attr_accessor :items_per_page, :current_page
@@ -16,7 +18,7 @@ module Paginary
       def current_page=(page)
         number = page.to_i
         unless number.to_s == page.to_s && number.between?(1, page_count)
-          raise ActiveRecord::RecordNotFound, "unknown page #{page}, expected 1..#{page_count}"
+          raise PageNotFound, "Unknown page #{page}, expected 1..#{page_count}"
         end
         @current_page = number
       end

@@ -2,11 +2,11 @@ class WidgetsController < ApplicationController
   # GET /widgets
   # GET /widgets.xml
   def index
-    @widgets = Widget.all
+    @widgets = Widget.scoped
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @widgets }
+      format.xml  { render :xml => @widgets.paginate(params[:page]) }
     end
   end
 

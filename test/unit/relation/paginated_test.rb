@@ -5,7 +5,7 @@ class PaginatedTest < ActiveRecord::TestCase
     @klass = Widget
     @relation = @klass.scoped
   end
-  
+
   # Relation methods =========================================================
   test "item_count should return number of items without pagination" do
     assert_equal @klass.count, @relation.paginate.item_count
@@ -38,35 +38,35 @@ class PaginatedTest < ActiveRecord::TestCase
   test "first_page? should return true if there is no previous page" do
     assert_equal true, @relation.paginate(1).first_page?
   end
-  
+
   # Page validation ==========================================================
   test "paginate should set current page if given page is an integer string" do
     assert_equal 2, @relation.paginate("2").current_page
   end
-  
+
   test "paginate should raise error if given page is less than one" do
-    assert_raises ActiveRecord::RecordNotFound do
+    assert_raises Paginary::PageNotFound do
       @relation.paginate(0)
     end
   end
 
   test "paginate should raise error if given page does not exist" do
-    assert_raises ActiveRecord::RecordNotFound do
+    assert_raises Paginary::PageNotFound do
       @relation.paginate(1239)
     end
   end
-  
+
   test "paginate should raise error if given page is not well formatted" do
-    assert_raises ActiveRecord::RecordNotFound do
+    assert_raises Paginary::PageNotFound do
       @relation.paginate("1.5")
     end
   end
-  
+
   # Page calculation =========================================================
   test "page_count should return 1 if there are no items" do
     assert_equal 1, @relation.where(:deleted => true).paginate.page_count
   end
-  
+
   test "page_count should return 1 if number of items is within number of items per page" do
     16.times { Widget.create! :deleted => true }
     assert_equal 1, @relation.where(:deleted => true).paginate(:per_page => 17).page_count
