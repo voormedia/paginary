@@ -3,17 +3,17 @@ module Paginary
     class PageBuilder
       attr_reader :template, :relation
       alias_method :items, :relation
-      
+
       delegate :content_tag, :link_to, :params, :translate, :to => :template
       delegate :current_page, :page_count, :first_page?, :last_page?, :to => :relation
-      
+
       def initialize(template, relation, options = {})
         @template = template
         @param_name = options.delete(:param) || :page
         @link_range = options.delete(:link_range) || 10
         @relation = relation.paginated? ? relation : relation.paginate(params[@param_name], options)
       end
-      
+
       def page_url(page)
         template.url_for params.merge(@param_name => page)
       end
@@ -21,11 +21,11 @@ module Paginary
       def previous_url
         page_url current_page - 1
       end
-      
+
       def next_url
         page_url current_page + 1
       end
-      
+
       def links
         return unless @relation.paginated?
         content_tag :div, previous_link + page_links + next_link, :class => "pagination"
@@ -36,7 +36,7 @@ module Paginary
           page_link(page)
         end.inject(:+)
       end
-      
+
       def page_link(page)
         link_to content_tag(:span, page), page_url(page), :class => "page#{current_page == page ? " selected" : ""}"
       end
@@ -58,9 +58,9 @@ module Paginary
           content_tag :span, text, :class => "next disabled"
         end
       end
-      
+
       protected
-      
+
       def page_numbers
         start  = current_page - @link_range
         finish = current_page + @link_range
@@ -72,7 +72,7 @@ module Paginary
           start = [start + page_count - finish, 1].max
           finish = page_count
         end
-        
+
         (start..finish).to_a
       end
     end

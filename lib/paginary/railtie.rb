@@ -6,7 +6,7 @@ module Paginary
         ActiveRecord::Base.singleton_class.delegate :paginate, :paginated?, :to => :scoped
       end
     end
-    
+
     initializer "paginary.pagination_helper" do
       ActiveSupport.on_load(:action_view) do
         ActionView::Base.send :include, Paginary::Helpers::PaginationHelper
